@@ -1,0 +1,623 @@
+@charset "UTF-8";
+/*animation de logo et background video*/
+.banner__video {
+  position: absolute;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  animation: bas 2s 300ms both;
+  z-index: 1;
+  opacity: 1;
+  left: auto !important;
+}
+
+.banner__background {
+  z-index: -2;
+  opacity: 1;
+  left: auto !important;
+  max-width: 100%;
+  overflow: hidden;
+}
+.banner__background,
+.banner__background .banner__video {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  min-width: 1440px !important;
+  animation: bas 2s 300ms both, 6s 2s infinite ease-in-out;
+}
+
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  opacity: 1;
+  animation: 2s 300ms both, flotte 6s 2s infinite ease-in-out;
+}
+
+.banner__video {
+  z-index: -1;
+  opacity: 1;
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.banner {
+  background-image: none;
+  position: relative;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+/* Pour flotter  */
+@keyframes flotte {
+  0% {
+    transform: translate3d(6px, 6px, 0);
+  }
+  12% {
+    transform: translate3d(0px, 6px, 0);
+  }
+  24% {
+    transform: translate3d(6px, -4px, 0);
+  }
+  36% {
+    transform: translate3d(6px, 0px, 0);
+  }
+  48% {
+    transform: translate3d(-4px, -6px, 0);
+  }
+  60% {
+    transform: translate3d(0px, -4px, 0);
+  }
+  72% {
+    transform: translate3d(-8px, 6px, 0);
+  }
+  84% {
+    transform: translate3d(-4px, 0px, 0);
+  }
+  100% {
+    transform: translate3d(6px, 6px, 0);
+  }
+}
+/*la fleure de footer*/
+ul::after {
+  z-index: -1;
+  position: absolute;
+  left: calc(50% - 323px);
+  bottom: -28.5em;
+  animation: rotate var(--vitesseFleurs) linear infinite;
+}
+
+/* deplacer les element vers le bas  */
+@keyframes bas {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+/* deplacer les element vers le haut  */
+@keyframes haut {
+  0% {
+    transform: translateY(600px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/*animation des fleures*/
+:root {
+  --vitesseFleurs: 15s;
+  /* Cette ligne définit une variable CSS personnalisée (ou propriété personnalisée)
+   appelée --vitesseFleurs avec une valeur de 15s (15 secondes). 
+   Les variables personnalisées permettent de définir des valeurs réutilisables */
+}
+
+.story h2::after {
+  animation: rotate var(--vitesseFleurs) linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#studio h2::before {
+  animation: rotate var(--vitesseFleurs) linear infinite;
+  width: 203px;
+  height: 203px;
+}
+
+#studio h2::after {
+  animation: rotate var(--vitesseFleurs) linear infinite;
+  height: 109px;
+  width: 109px;
+}
+
+.site-footer::after {
+  width: 173px;
+  height: 173px;
+}
+
+.story__article::after {
+  animation: rotate var(--vitesseFleurs) linear infinite;
+  width: 188px;
+  height: 188px;
+}
+
+.story h2::after, .site-footer::before {
+  width: 154px;
+  height: 154px;
+}
+/*  le style des éléments liés aux nominations aux Oscars,
+ notamment les images,
+ les titres et les conteneurs. */
+
+/*nomination des titres*/
+h2 span, h3 span {
+  display: inline-block;
+}
+
+.story #characters {
+  display: inline-block;
+}
+
+/*nomination oscars*/
+.nom-osca {
+  position: relative;
+  padding: 150px 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.oscr-nomination {
+  position: relative;
+}
+
+.oscr-nomination img {
+  height: 100%;
+}
+
+.oscr-nomination h3 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 3.2rem;
+  text-align: left;
+}
+
+.nom-osca img {
+  height: 100%;
+}
+
+/*déplacement des fleures dans un autre section*/
+/* ce script ajoute des images de fleurs (tournesol et orchidée) 
+avant et après les éléments avec la classe .nom-osca,
+ainsi qu’un contenu vide avant et après les éléments
+ avec la classe .site-footer */
+.nom-osca::before {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  left: 4em;
+  top: 0em;
+  animation: rotate var(--vitesseFleurs) linear infinite;
+}
+
+.nom-osca::after {
+  content: url("../images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: -3em;
+  animation: rotate var(--vitesseFleurs) linear infinite;
+}
+
+.site-footer::before {
+  content: "";
+}
+
+.site-footer::after {
+  content: "";
+}
+
+/* ---les nuages----
+L’animation des nuages est réalisée en utilisant
+ une animation CSS qui déplace les nuages de droite à gauche. 
+Les nuages sont positionnés de manière absolue et un effet de flou
+ est appliqué pour donner une impression de profondeur.
+ L’animation est appliquée à l’élément .nuage-2,
+le faisant se déplacer continuellement vers la gauche.      */
+.story #place {
+  position: relative;
+  background-image: url("../images/Studio_Koukaki-image_place.png");
+  z-index: -1;
+}
+
+@keyframes deplacementAGauche {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+#place .nuage-2 {
+  animation: deplacementAGauche linear;
+  animation-timeline: view();
+}
+
+#place .nuage-1,
+#place .nuage-2 {
+  position: absolute;
+  -moz-filter: blur(15px);
+  filter: blur(15px);
+  z-index: 2;
+}
+
+#place .nuage-1 {
+  height: 122px;
+  top: 70px;
+  right: 90px;
+}
+
+#place .nuage-2 {
+  height: 55px;
+  top: 150px;
+  right: 750px;
+}
+
+.story #place h3 {
+  min-width: 300px;
+}
+
+/*swiper ce script stylise les éléments d’un carrousel
+(comme des images de diapositives) en utilisant des propriétés telles que la taille,
+la position et la mise en forme du texte*/
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: auto;
+  text-align: center;
+  font-size: 18px;
+  justify-content: center;
+}
+
+.story #characters {
+  position: relative;
+  margin-bottom: 0 !important;
+  z-index: 20;
+}
+
+.story #characters div {
+  flex: none;
+  display: flex;
+  justify-content: center;
+}
+
+.swiper {
+  width: 100%;
+  opacity: 1;
+  margin-bottom: 7em;
+  overflow: hidden;
+}
+
+.swiper-slide figure {
+  display: block;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+/* MENU BURGER */
+/* Cela cible tous les éléments <li>
+sauf le troisième élément. */
+.first-menu li:not(:nth-child(3)) {
+  display: none;
+}
+
+/* Style pour le menu ouvert */
+.opened-menu {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff5e9;
+  color: black;
+}
+
+/* Petit logo dans le menu ouvert */
+.menu-img {
+  width: 12%;
+  margin: auto;
+  padding-top: 1%;
+  padding-bottom: 2%;
+  filter: drop-shadow(0px 0.273343px 0px #ffe600);
+}
+
+/* .liste-burger : Cela cible un élément avec la classe .liste-burger.
+ Il affiche les éléments en colonne (un en dessous de l’autre). 
+ Les éléments <li>ont une taille de police de 64px,
+une hauteur de ligne de 84px et un espacement en bas de 1%. */
+.liste-burger {
+  display: flex;
+  flex-direction: column;
+}
+
+.liste-burger li {
+  font-size: 64px;
+  line-height: 84px;
+  padding-bottom: 1%;
+}
+
+.liste-burger li a:hover {
+  color: black;
+  text-shadow: 0px 0px 14px #ff5c00;
+}
+
+/* Modifier le style du lien de pied de page dans le menu ouvert */
+.footer-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.burger-menu-footer-link {
+  padding-top: 4%;
+  width: 160px;
+  list-style: none;
+}
+
+.burger-menu-footer-link a {
+  text-decoration: none;
+}
+
+/* Style pour les petites barres du bouton burger */
+.main-navigation .bar {
+  height: 3px;
+  background-color: #000;
+  display: block;
+  margin-block: 2px;
+  width: 20px;
+}
+/* Position du bouton burger */
+.bouton-burger {
+  position: absolute;
+  cursor: pointer;
+  left: 90%;
+  top: 45%;
+}
+
+/* Animation du menu croisé */
+.bar:not(:nth-child(2)) {
+  transition: 0.4s;
+}
+
+.change .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.bar:nth-child(2) {
+  transition: 0.2s;
+}
+
+/* Rotation des barres supérieure et inférieure */
+.change .bar:first-child {
+  transform: rotate(-45deg) translate(0px, 0px);
+}
+
+.change .bar:last-child {
+  transform: rotate(45deg) translate(-7px, -7px);
+}
+
+/* Chats et fleurs dans le menu ouvert */
+.images-menu img {
+  position: absolute;
+}
+
+.images-menu .chat {
+  width: 8%;
+}
+
+.mauve {
+  top: 20em;
+  left: 100em;
+  width: 5%;
+  animation: rotate 5s linear infinite;
+}
+
+.violette {
+  top: 10em;
+  left: -5em;
+  animation: rotate 5s linear infinite;
+}
+
+.hibiscus {
+  top: 33em;
+  left: 79em;
+  animation: rotate 5s linear infinite;
+}
+
+.tournesol {
+  top: 12em;
+  left: 74em;
+  animation: rotate 5s linear infinite;
+}
+
+.jaune {
+  top: 32em;
+  left: 23em;
+  width: 6%;
+  animation: rotate 5s linear infinite;
+}
+
+.bleu {
+  top: 25em;
+  left: 5em;
+  animation: haut 2s 300ms both, flotte 6s 2s infinite ease-in-out;
+}
+
+.noir {
+  left: 60em;
+  top: 30em;
+  animation: haut 2s 300ms both, flotte 6s 2s infinite ease-in-out;
+}
+
+.orange {
+  top: 35em;
+  animation: haut 2s 300ms both, flotte 6s 2s infinite ease-in-out;
+}
+
+@media all and (max-width: 1192px) {
+  .nom-osca h3 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+}
+@media all and (max-width: 700px) {
+  .main-navigation {
+    height: 80px;
+  }
+  .main-navigation ul {
+    display: flex !important;
+  }
+}
+@media all and (max-width: 580px) {
+  .banner {
+    min-height: 400px !important;
+  }
+  .banner .banner__video {
+    opacity: 0;
+  }
+  .banner__background {
+    opacity: 1;
+    min-width: 900px !important;
+  }
+}
+@media all and (max-width: 920px) {
+  h2 {
+    font-size: 3.3rem;
+  }
+  .story > h2 span,
+  .studio > h2 span {
+    width: 100%;
+  }
+  .story #characters {
+    margin-top: 10px !important;
+  }
+  #characters > h3,
+  #place h3 {
+    width: 100%;
+  }
+  #nom-osca {
+    padding-top: 20px;
+  }
+  .nom-osca h3 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    min-width: 100%;
+  }
+}
+/*    Media query : max-width: 700px    */
+@media all and (max-width: 700px) {
+  h2 {
+    font-size: 3rem;
+  }
+  .nom-osca h3 {
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+  }
+  #characters span,
+  #place span {
+    top: 100px;
+  }
+}
+/*  **********************************  */
+/*    Media query : max-width: 480px    */
+/*  **********************************  */
+@media all and (max-width: 480px) {
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  #characters span,
+  #place span {
+    top: 100px;
+  }
+  .oscr-nomination {
+    height: 200px;
+  }
+  .nom-osca h3 {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+  }
+  .nom-osca__logo {
+    max-width: 70%;
+  }
+}
+@media all and (max-width: 900px) {
+  .nom-osca::before {
+    display: none;
+  }
+}
+@media all and (max-width: 900px) {
+  .nom-osca::after {
+    display: none;
+  }
+}
+/*    Media query :   menus  */
+@media all and (max-width: 700px) {
+  .violette {
+    display: none;
+  }
+}
+@media all and (max-width: 700px) {
+  .mauve {
+    display: none;
+  }
+}
+@media all and (max-width: 700px) {
+  .hibiscus {
+    display: none;
+  }
+}
+@media all and (max-width: 700px) {
+  .tournesol {
+    display: none;
+  }
+}
+@media all and (max-width: 700px) {
+  .jaune {
+    display: none;
+  }
+}
+@media all and (max-width: 700px) {
+  .bleu {
+    display: none;
+  }
+}
+@media all and (max-width: 700px) {
+  .noir {
+    display: none;
+  }
+}
+@media all and (max-width: 480px) {
+  .orange {
+    display: none;
+  }
+}
